@@ -14,7 +14,6 @@ function EditCar({editCar, params}) {
         price: ''
     })
     const handleClickOpen = () => {
-        console.log("Avattiin ikkuna")
         setOpen(true);
         setCar({
             brand: params.data.brand,
@@ -26,11 +25,9 @@ function EditCar({editCar, params}) {
         })
     }
     const handleClose = () => {
-        console.log("Suljetaan ikkuna")
         setOpen(false);
     }
     const handleSave = () => {
-        console.log("Käsitellään tallennus")
         editCar(car, params.value);
         setOpen(false);
     }

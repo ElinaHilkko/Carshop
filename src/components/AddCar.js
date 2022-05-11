@@ -14,15 +14,12 @@ function AddCar({addCar}) {
         price: ''
       })
     const handleClickOpen = () => {
-        console.log("Ollaan handle click openissa")
         setOpen(true);
     }
     const handleClose = () => {
-        console.log("Suljetaan ikkuna")
         setOpen(false);
     }
     const handleSave = () => {
-        console.log("Käsitellään tallennus")
         addCar(car);
         setOpen(false);
     } 

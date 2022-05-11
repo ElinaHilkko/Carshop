@@ -8,11 +8,10 @@ import AddCar from './AddCar';
 import EditCar from './EditCar';
 
 function Carlist() {
-    //REST-apista haetaan autot
     useEffect( () => {
         fetchCars();
     }, [])
-    //state car-oliota varten
+    
     const[cars, setCars] = useState([]);
 
     const fetchCars = () => {
@@ -21,7 +20,6 @@ function Carlist() {
             .then(data => setCars(data._embedded.cars)); 
     }  
     const addCar = (car) => {
-        console.log("Ollaan addCar funktiossa" + JSON.stringify(car))
         fetch(process.env.REACT_APP_API_URL, {
             method: 'POST',
             headers: {'Content-type':'application/json'},
@@ -37,7 +35,6 @@ function Carlist() {
             .catch(err => console.log(err))
     }
     const editCar = (editCar, link) => {
-        console.log("Ollaan editCar funktiossa")
         fetch(link, {
             method: 'PUT',
             headers: {'Content-type':'application/json'},
@@ -45,7 +42,6 @@ function Carlist() {
         })
         .then(response => {
             if(response.ok) {
-                console.log("Onnistui")
                 fetchCars();
             } else {
                 alert('Somethin went wrong with editing car')
@@ -54,7 +50,6 @@ function Carlist() {
         .catch(err => console.error(err))
     }
     const deleteCar = (link) => {
-        console.log("Ollaan deleteCar funktiossa")
         console.log(link)
 
         fetch(link, { method: 'DELETE'})
